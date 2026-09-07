@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servicio de Pagos</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="screen-shell">
+    <div class="project-header">
+      <div class="brand-box">
+        <span class="brand-text">PAGOS</span>
+      </div>
+      <div class="project-tabs">
+        <span class="tab active">Mi negocio</span>
+        <span class="tab">Transacciones</span>
+        <span class="tab">Webhook</span>
+      </div>
+      <div class="header-actions">
+        <button class="small-btn">+</button>
+      </div>
+    </div>
+
+    <div class="main-panel">
+      <aside class="sidebar">
+        <div class="side-header">
+          <span>Pagos</span>
+          <button id="btnCrearPago" class="primary-btn">Crear pago</button>
+        </div>
+
+        <div id="listaPagos" class="lista-pagos"></div>
+      </aside>
+
+      <main class="content-area">
+        <div class="topbar">
+          <div class="search-box">Buscar pago</div>
+          <div class="status-chip" id="estadoGlobal">EN PROCESO</div>
+        </div>
+
+        <div class="detail-card">
+          <div class="card-header">
+            <div>
+              <div class="eyebrow">Detalle del pago</div>
+              <h2 id="tituloPago">Pago nuevo</h2>
+            </div>
+            <span id="badgeEstado" class="badge en-proceso">EN_PROCESO</span>
+          </div>
+
+          <div class="metrics">
+            <div class="metric-box">
+              <label>ID</label>
+              <strong id="pagoId">-</strong>
+            </div>
+            <div class="metric-box">
+              <label>Monto</label>
+              <strong id="pagoMonto">-</strong>
+            </div>
+            <div class="metric-box">
+              <label>Estado</label>
+              <strong id="pagoEstado">-</strong>
+            </div>
+          </div>
+
+          <div class="control-panel">
+            <button class="success-btn" id="btnConfirmar">Confirmar</button>
+            <button class="danger-btn" id="btnCancelar">Cancelar</button>
+            <button class="neutral-btn" id="btnWebhookApproved">Monto aprobado</button>
+            <button class="neutral-btn" id="btnWebhookRejected">Monto rechazado</button>
+          </div>
+
+          <div class="code-panel">
+            <div class="code-toolbar">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <pre id="jsonPago">{
+  "id": null,
+  "monto": 0.0,
+  "estado": "EN_PROCESO"
+}</pre>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
